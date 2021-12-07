@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { getTeamById } from '../../services/teams';
 
-export default function TeamDetail({ label, match }) {
+export default function TeamDetail({ match }) {
     const { teamId } = match.params;
     const [team, setTeam] = useState(null);
-    const [loading, setLoading] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         getTeamById(teamId)
@@ -14,6 +14,7 @@ export default function TeamDetail({ label, match }) {
     }, [teamId])
     
     if(loading) return <h1>Loading...</h1>
+    
     return (
         <>
             <p>
