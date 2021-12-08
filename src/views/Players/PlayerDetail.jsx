@@ -4,13 +4,13 @@ import { getPlayerById } from "../../services/players";
 
 
 export default function PlayerDetail() {
-    const { playerId } = useParams();
+    const { id } = useParams();
     const [player, setPlayer] = useState(null);
     
     useEffect(() => {
-        getPlayerById(playerId)
+        getPlayerById(id)
         .then((response) => setPlayer(response))
-    }, [playerId])
+    }, [id])
 
     if(!player) return <h1> Loading...</h1>
 
@@ -29,7 +29,7 @@ export default function PlayerDetail() {
             </p>
             <p>
                 {' '}
-                <Link to={`/teams/${player.team.id}`}>{player.teams.name}</Link>
+                <Link to={`/teams/${player.team_id}`}>{player.teams.name}</Link>
             </p>
         </>
     )

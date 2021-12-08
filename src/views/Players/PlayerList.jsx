@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { getPlayers } from '../../services/players';
 
 export default function PlayerList() {
+    const { id } = useParams();
+    console.log(id);
     const [players, setPlayers] = useState([]);
 
     useEffect(() => {
