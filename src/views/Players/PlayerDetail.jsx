@@ -28,6 +28,7 @@ export default function PlayerDetail() {
                 {player.teams.city}, {player.teams.state}
             </p>
             <p>
+                {' '}
                 <Link to={`/teams/${player.team.id}`}>{player.teams.name}</Link>
             </p>
         </>

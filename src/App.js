@@ -3,6 +3,8 @@ import { BrowserRouter as Router, NavLink, Route, Switch } from 'react-router-do
 import TeamDetail from './views/Teams/TeamDetail';
 import TeamList from './views/Teams/TeamList';
 import Home from './views/Home/Home';
+import PlayerDetail from './views/Players/PlayerDetail';
+import PlayerList from './views/Players/PlayerList';
 
 function App() {
   return (
@@ -12,9 +14,6 @@ function App() {
           Sport!
           <NavLink to="/" className="App-link" exact>
             Home
-          </NavLink>
-          <NavLink to="/teams" className="App-link" exact>
-            Teams
           </NavLink>
         </header>
         <Switch>
@@ -27,9 +26,14 @@ function App() {
             render={(routerProps) => <TeamList {...routerProps} />}
           />
           <Route
-            path="/"
-            render={(routerProps) => <Home {...routerProps} />}
+            path="/players/:playerId"
+            render={(routerProps) => <PlayerDetail {...routerProps} />}
           />
+          <Route
+            path="/players"
+            render={(routerProps) => <PlayerList {...routerProps} />}
+          />
+          <Route path="/" render={(routerProps) => <Home {...routerProps} />} />
         </Switch>
       </Router>
     </div>

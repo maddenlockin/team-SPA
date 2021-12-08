@@ -28,7 +28,8 @@ export default function TeamDetail({ match }) {
                 {team.players.map((player) => {
                     return (
                         <li key={player.id}>
-                            {player.position} - {player.name}
+                            <Link to={`/players/${team.players.id}`}>{player.name}</Link>
+                            - {player.position}
                         </li>
                     )
                 })}
