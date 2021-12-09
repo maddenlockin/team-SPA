@@ -15,6 +15,9 @@ function App() {
           <NavLink to="/" className="App-link" exact>
             Home
           </NavLink>
+          <NavLink to="/players" className="App-link" exact>
+            All Players
+          </NavLink>
         </header>
         <Switch>
           <Route
@@ -26,7 +29,7 @@ function App() {
             render={(routerProps) => <TeamList {...routerProps} />}
           />
           <Route
-            path="/players/:playerId"
+            path="/players/:id"
             render={(routerProps) => <PlayerDetail {...routerProps} />}
           />
           <Route

@@ -3,13 +3,14 @@ import { Link, useParams } from "react-router-dom"
 import { getPlayerById } from "../../services/players";
 
 
-export default function PlayerDetail() {
-    const { id } = useParams();
+export default function PlayerDetail({ match }) {
+    const { id } = match.params;
     const [player, setPlayer] = useState(null);
     
     useEffect(() => {
         getPlayerById(id)
         .then((response) => setPlayer(response))
+        console.log("ID", id)
     }, [id])
 
     if(!player) return <h1> Loading...</h1>

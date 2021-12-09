@@ -10,6 +10,7 @@ export default function TeamDetail({ match }) {
         getTeamById(teamId)
         .then((response) => setTeam(response))
     }, [teamId])
+    console.log("PLAYERS", team)
     
     if(!team) return <h1>Loading...</h1>
 
@@ -28,7 +29,7 @@ export default function TeamDetail({ match }) {
                 {team.players.map((player) => {
                     return (
                         <li key={player.id}>
-                            <Link to={`/players/${team.players.id}`}>{player.name}</Link>
+                            <Link to={`/players/${player.id}`}>{player.name}</Link>
                             - {player.position}
                         </li>
                     )
