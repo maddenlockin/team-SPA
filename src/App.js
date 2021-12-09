@@ -5,6 +5,7 @@ import TeamList from './views/Teams/TeamList';
 import Home from './views/Home/Home';
 import PlayerDetail from './views/Players/PlayerDetail';
 import PlayerList from './views/Players/PlayerList';
+import AddTeam from './views/Teams/AddTeam';
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
           </NavLink>
         </header>
         <Switch>
+          <Route path='/teams/new' component={AddTeam} />
+          
           <Route
             path="/teams/:teamId"
             render={(routerProps) => <TeamDetail {...routerProps} />}

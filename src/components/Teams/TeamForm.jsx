@@ -10,7 +10,7 @@ export default function TeamForm({
     handleSubmit
 }) {
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <label htmlFor='name'>Name:</label>
             <input
                 id='name'

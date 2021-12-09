@@ -11,6 +11,9 @@ export default function TeamList() {
 
     return (
         <>
+            <Link to='/teams/new' className='App-link'>
+                Add a team
+            </Link>
             <ul>
                 {teams.map((team) => {
                     return <li key={team.id}>
