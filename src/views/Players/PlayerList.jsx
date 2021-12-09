@@ -1,17 +1,14 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getPlayers } from '../../services/players';
 
 export default function PlayerList() {
-    //const { id } = useParams();
-    //console.log("!!!!", id);
     const [players, setPlayers] = useState([]);
 
     useEffect(() => {
         getPlayers()
         .then((response) => setPlayers(response))
     }, []);
-    console.log("players", players)
 
     if(!players) return <h1> Loading...</h1>
 

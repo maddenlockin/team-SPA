@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { getPlayerById } from "../../services/players";
 
 
@@ -10,7 +10,6 @@ export default function PlayerDetail({ match }) {
     useEffect(() => {
         getPlayerById(id)
         .then((response) => setPlayer(response))
-        console.log("ID", id)
     }, [id])
 
     if(!player) return <h1> Loading...</h1>

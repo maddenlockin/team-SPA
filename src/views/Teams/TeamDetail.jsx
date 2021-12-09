@@ -10,7 +10,6 @@ export default function TeamDetail({ match }) {
         getTeamById(teamId)
         .then((response) => setTeam(response))
     }, [teamId])
-    console.log("PLAYERS", team)
     
     if(!team) return <h1>Loading...</h1>
 
