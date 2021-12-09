@@ -1,9 +1,43 @@
 import React from 'react'
 
-export default function TeamForm() {
+export default function TeamForm({
+    name,
+    setName,
+    city,
+    setCity,
+    state,
+    setState,
+    handleSubmit
+}) {
     return (
-        <div>
-            
-        </div>
+        <form>
+            <label htmlFor='name'>Name:</label>
+            <input
+                id='name'
+                name='name'
+                type='text'
+                value={name}
+                onChange={({ target }) => setName(target.value)}
+            />
+            <label htmlFor='city'>City:</label>
+            <input
+                id='city'
+                name='city'
+                type='text'
+                value={city}
+                onChange={({ target }) => setCity(target.value)}
+            />
+            <label htmlFor='state'>State:</label>
+            <input
+                id='state'
+                name='state'
+                type='text'
+                value={state}
+                onChange={({ target }) => setState(target.value)}
+            />
+            <button type='submit' aria-label='Add a team'>
+                Submit
+            </button>
+        </form>
     )
 }
