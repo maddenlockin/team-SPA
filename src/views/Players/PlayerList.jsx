@@ -10,7 +10,7 @@ export default function PlayerList() {
         .then((response) => setPlayers(response))
     }, []);
 
-    if(!players) return <h1> Loading...</h1>
+    if(!players) return <h1>Loading...</h1>
 
     return (
         <>
