@@ -34,6 +34,9 @@ export default function TeamDetail({ match }) {
                     )
                 })}
             </ul>
+            <Link to={`/teams/${team.id}/update`} className='App-link'>
+                Edit Team Info
+            </Link>
         </>
     )
 }

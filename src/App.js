@@ -22,7 +22,10 @@ function App() {
         </header>
         <Switch>
           <Route path='/teams/new' component={AddTeam} />
-          
+
+          <Route path='/teams/:teamId/update'
+          component={AddTeam} />
+
           <Route
             path="/teams/:teamId"
             render={(routerProps) => <TeamDetail {...routerProps} />}
