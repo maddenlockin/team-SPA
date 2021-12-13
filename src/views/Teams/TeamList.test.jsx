@@ -44,7 +44,7 @@ afterAll(() => {
     server.close();
 });
 
-it('should render a list of teams', async () => {
+xit('should render a list of teams', async () => {
     const {container} = render(
         <MemoryRouter>
             <TeamList />
@@ -59,7 +59,7 @@ it('should render a list of teams', async () => {
     expect(teamTwo).toBeInTheDocument();
     expect(container).toMatchSnapshot();
 })
-it('should be able to delete a team', async () => {
+xit('should be able to delete a team', async () => {
     window.confirm = jest.fn(() => true);
 
     render(
