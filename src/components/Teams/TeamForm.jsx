@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function TeamForm({
+export default function PlayerForm({
     name,
     setName,
     city,
@@ -35,7 +35,7 @@ export default function TeamForm({
                 value={state}
                 onChange={({ target }) => setState(target.value)}
             />
-            <button type='submit' aria-label='Add a team'>
+            <button type='submit' aria-label='Submit'>
                 Submit
             </button>
         </form>
