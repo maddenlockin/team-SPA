@@ -14,6 +14,9 @@ export default function PlayerList() {
 
     return (
         <>
+            <Link to='/players/new' className='App-link'>
+                Add a player
+            </Link>
             <ul>
                 {players.map((player) => {
                     return <li key={player.id}>

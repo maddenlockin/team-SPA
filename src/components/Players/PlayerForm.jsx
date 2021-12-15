@@ -30,7 +30,10 @@ export default function TeamForm({
             {teams ? (
                 <>
                     <label htmlFor='select-team'>Team:</label>
-                    <select id='select-team' onChange={({target}) => setTeam(target)}>
+                    <select id='select-team' onChange={({ target }) => setTeam(target.value)}>
+                      <option key={0} value={0}>
+                        Choose a Team
+                      </option>
                         {teams.map((team) => (
                             <option key={team.teamId} value={team.teamId}> 
                                 {team.name}
