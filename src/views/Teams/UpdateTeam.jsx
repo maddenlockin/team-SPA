@@ -8,11 +8,18 @@ export default function UpdateTeam() {
     const [name, setName] = useState('');
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
-    const [team, setTeam] = useState('');
+    const [loading, setLoading] = useState(true);
     const history = useHistory();
 
     useEffect(() => {
-        getTeamById(teamId).then((response) => setTeam(response))
+        async function getTeam(){
+            const { name, city, state } = await getTeamById(teamId)
+            setName(name)
+            setCity(city)
+            setState(state)
+            setLoading(false)
+        }
+        getTeam()
     }, [teamId]);
 
     const handleUpdate = async (e) => {
@@ -21,7 +28,7 @@ export default function UpdateTeam() {
         history.push(`/teams/${response[0].id}`);
     };
 
-    if(!team) return <h1>Loading...</h1>
+    if(loading) return <h1>Loading...</h1>
 
     return (
         <>

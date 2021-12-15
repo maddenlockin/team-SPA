@@ -6,6 +6,7 @@ import Home from './views/Home/Home';
 import PlayerDetail from './views/Players/PlayerDetail';
 import PlayerList from './views/Players/PlayerList';
 import AddTeam from './views/Teams/AddTeam';
+import UpdateTeam from './views/Teams/UpdateTeam';
 
 function App() {
   return (
@@ -21,10 +22,9 @@ function App() {
           </NavLink>
         </header>
         <Switch>
-          <Route path='/teams/new' component={AddTeam} />
-
-          <Route path='/teams/:teamId/update'
-          component={AddTeam} />
+          <Route path="/teams/update/:teamId" component={UpdateTeam} />
+          
+          <Route path="/teams/new" component={AddTeam} />
 
           <Route
             path="/teams/:teamId"
