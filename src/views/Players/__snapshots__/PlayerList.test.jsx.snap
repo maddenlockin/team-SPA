@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render a list of players 1`] = `
+<div>
+  <ul>
+    <li>
+      <a
+        class="App-link"
+        href="/players/1"
+      >
+        Boppy Boop
+      </a>
+    </li>
+    <li>
+      <a
+        class="App-link"
+        href="/players/2"
+      >
+        Doris The Cat
+      </a>
+    </li>
+    <li>
+      <a
+        class="App-link"
+        href="/players/3"
+      >
+        Finney The Elder Cat
+      </a>
+    </li>
+    <li>
+      <a
+        class="App-link"
+        href="/players/5"
+      >
+        Kary Chair
+      </a>
+    </li>
+    <li>
+      <a
+        class="App-link"
+        href="/players/4"
+      >
+        Lampy Vampy
+      </a>
+    </li>
+    <li>
+      <a
+        class="App-link"
+        href="/players/6"
+      >
+        Penny Hen
+      </a>
+    </li>
+  </ul>
+</div>
+`;
