@@ -7,16 +7,32 @@ import { getTeams } from '../../services/teams';
 export default function AddPlayer() {
     const [name, setName] = useState('');
     const [position, setPosition] = useState('');
-    const [teamId, setTeamId] = useState(null);
-    const [teams, setTeams] = useState(null);
+    const [chosenTeam, setChosenTeam] = useState('');
+    const [teams, setTeams] = useState([]);
     const history = useHistory();
 
     useEffect(() => {
-      getTeams().then((response) => setTeams(response))
+        async function getTheTeams() {
+            const fetchTeams = await getTeams();
+            setTeams(fetchTeams);
+        }
+        getTheTeams();
     }, [])
+
+    useEffect(() => {
+        async function getChosenTeam() {
+            if (!chosenTeam) return;
+
+            if (chosenTeam !== 'Choose a Team') {
+                setChosenTeam(chosenTeam)
+            }
+        }
+        getChosenTeam();
+    }, [chosenTeam])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const teamId = chosenTeam;
         const response = await createPlayer({ name, position, teamId });
         history.push(`/players/${response[0].id}`);
     };
@@ -31,7 +47,8 @@ export default function AddPlayer() {
                     position={position}
                     setPosition={setPosition}
                     teams={teams}
-                    setTeamId={setTeamId}
+                    chosenTeam={chosenTeam}
+                    setChosenTeam={setChosenTeam}
                     handleSubmit={handleSubmit}
                 />
             </fieldset>

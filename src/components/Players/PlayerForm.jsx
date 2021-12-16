@@ -6,7 +6,8 @@ export default function TeamForm({
     position,
     setPosition,
     teams,
-    setTeam,
+    chosenTeam,
+    setChosenTeam,
     handleSubmit
 }) {
     return (
@@ -27,25 +28,19 @@ export default function TeamForm({
                 value={position}
                 onChange={({ target }) => setPosition(target.value)}
             />
-            {teams ? (
-                <>
-                    <label htmlFor='select-team'>Team:</label>
-                    <select id='select-team' onChange={({ target }) => setTeam(target.value)}>
-                      <option key={0} value={0}>
-                        Choose a Team
-                      </option>
-                        {teams.map((team) => (
-                            <option key={team.teamId} value={team.teamId}> 
-                                {team.name}
-                            </option>
-                        ))}
-                    </select>
-                </>
-            ) : (
-                ''
-            )
-          }
-
+            
+            <select value={chosenTeam} onChange={({ target }) => setChosenTeam(target.value)}>
+                <option key={0} value={0}>
+                    Choose a Team
+                </option>
+                {teams.map((team) => {
+                    return (
+                    <option key={team.id} value={team.id}> 
+                        {team.name}
+                    </option>
+                    )
+                })}
+            </select>
             <button type='submit' aria-label='Submit'>
                 Submit
             </button>
