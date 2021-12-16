@@ -1,16 +1,32 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import { getPlayers } from '../../services/players';
+import { deletePlayerById, getPlayers } from '../../services/players';
 
 export default function PlayerList() {
     const [players, setPlayers] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    const loadPlayerList = async () => {
+        setLoading(true);
+        const response = await getPlayers();
+        setPlayers(response);
+        setLoading(false);
+    }
 
     useEffect(() => {
-        getPlayers()
-        .then((response) => setPlayers(response))
+        loadPlayerList();
     }, []);
 
-    if(!players) return <h1>Loading...</h1>
+    const handleDelete = async ({ id, name }) => {
+        const confirmation = window.confirm(`Would you like to delete ${name}?`);
+
+        if (confirmation) {
+            await deletePlayerById(id);
+            await loadPlayerList();
+        }
+    }
+
+    if(loading) return <h1>Loading...</h1>
 
     return (
         <>
@@ -24,6 +40,13 @@ export default function PlayerList() {
                         className= 'App-link'>
                             {player.name}
                         </Link>
+                        <button
+                            type='button'
+                            aria-label={`Delete ${player.name}`}
+                            onClick={() => handleDelete({ id: player.id, name: player.name })}
+                        >
+                        Delete Player
+                        </button>
                     </li>
                 })}
             </ul>
