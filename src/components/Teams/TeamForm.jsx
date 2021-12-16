@@ -18,7 +18,7 @@ export default function PlayerForm({
                 type='text'
                 value={name}
                 onChange={({ target }) => setName(target.value)}
-            />
+            />{' '}
             <label htmlFor='city'>City:</label>
             <input
                 id='city'
@@ -26,7 +26,7 @@ export default function PlayerForm({
                 type='text'
                 value={city}
                 onChange={({ target }) => setCity(target.value)}
-            />
+            />{' '}
             <label htmlFor='state'>State:</label>
             <input
                 id='state'
@@ -34,7 +34,7 @@ export default function PlayerForm({
                 type='text'
                 value={state}
                 onChange={({ target }) => setState(target.value)}
-            />
+            />{' '}
             <button type='submit' aria-label='Submit'>
                 Submit
             </button>

@@ -19,7 +19,7 @@ export default function TeamForm({
                 type='text'
                 value={name}
                 onChange={({ target }) => setName(target.value)}
-            />
+            />{' '}
             <label htmlFor='position'>Position:</label>
             <input
                 id='position'
@@ -27,7 +27,7 @@ export default function TeamForm({
                 type='text'
                 value={position}
                 onChange={({ target }) => setPosition(target.value)}
-            />
+            /> {' '}
             
             <select value={chosenTeam} onChange={({ target }) => setChosenTeam(target.value)}>
                 <option key={0} value={0}>

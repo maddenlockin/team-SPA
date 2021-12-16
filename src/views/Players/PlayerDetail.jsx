@@ -31,6 +31,9 @@ export default function PlayerDetail({ match }) {
                 {' '}
                 <Link to={`/teams/${player.team_id}`}>{player.teams.name}</Link>
             </p>
+            <Link to={`/players/update/${player.id}`} className='App-link'>
+                Edit Player Info
+            </Link>
         </>
     )
 }

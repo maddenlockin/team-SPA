@@ -9,12 +9,14 @@ export default function AddPlayer() {
     const [position, setPosition] = useState('');
     const [chosenTeam, setChosenTeam] = useState('');
     const [teams, setTeams] = useState([]);
+    const [loading, setLoading] = useState(true);
     const history = useHistory();
 
     useEffect(() => {
         async function getTheTeams() {
             const fetchTeams = await getTeams();
             setTeams(fetchTeams);
+            setLoading(false);
         }
         getTheTeams();
     }, [])
@@ -36,6 +38,8 @@ export default function AddPlayer() {
         const response = await createPlayer({ name, position, teamId });
         history.push(`/players/${response[0].id}`);
     };
+
+    if (loading) return <h1>Loading...</h1>;
 
     return (
         <>

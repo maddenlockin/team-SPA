@@ -39,7 +39,7 @@ export default function PlayerList() {
                         <Link to={`/players/${player.id}`} 
                         className= 'App-link'>
                             {player.name}
-                        </Link>
+                        </Link> {' '}
                         <button
                             type='button'
                             aria-label={`Delete ${player.name}`}

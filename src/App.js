@@ -8,16 +8,17 @@ import PlayerList from './views/Players/PlayerList';
 import AddTeam from './views/Teams/AddTeam';
 import UpdateTeam from './views/Teams/UpdateTeam';
 import AddPlayer from './views/Players/AddPlayer';
+import UpdatePlayer from './views/Players/UpdatePlayer';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <header>
-          Sport!
+          Sport!{" "}
           <NavLink to="/" className="App-link" exact>
             Home
-          </NavLink>
+          </NavLink>{" "}
           <NavLink to="/players" className="App-link" exact>
             All Players
           </NavLink>
@@ -36,6 +37,8 @@ function App() {
             path="/teams"
             render={(routerProps) => <TeamList {...routerProps} />}
           />
+
+          <Route path="/players/update/:id" component={UpdatePlayer} />
 
           <Route path="/players/new" component={AddPlayer} />
 
